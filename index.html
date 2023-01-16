@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>👩🏼‍💻 Project Wireframe</title>
+
+    <link rel="stylesheet" href="src/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="border border-dark box">
+        <div class="row">
+          <div class="col-3">
+            <header>
+              <h1 id="city">Lisbon</h1>
+              <h2 id="time">
+                Sunday 01/01 <br />
+                20:05h
+              </h2>
+            </header>
+          </div>
+          <div class="col-9">
+            <form>
+              <div class="row">
+                <div class="col-7">
+                  <div class="form-group">
+                    <input
+                      type="search"
+                      class="form-control"
+                      id="inputCity"
+                      placeholder="Enter city"
+                      autocomplete="off"
+                    />
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <button
+                    type="submit"
+                    class="btn btn-outline-secondary"
+                    id="search-button"
+                  >
+                    Search 🔍
+                  </button>
+                </div>
+                <div class="col-auto">
+                  <button
+                    type="submit"
+                    class="btn btn-outline-primary"
+                    id="current-button"
+                  >
+                    Current
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row weather-top">
+          <div class="col today">
+            <h1>Today</h1>
+            <h2>
+              <span id="weather-emoji"> ☁️ </span>
+              <span id="temperature">15</span>
+              <span class="temp"
+                ><a href="#" id="celsius">ºC</a> |
+                <a href="#" id="farenheit">ºF</a></span
+              >
+            </h2>
+            <h3 id="weather-description">Clouds</h3>
+          </div>
+          <div class="col">
+            <div class="data">
+              <ul>
+                <li id="feels-like">Feels like: 12º</li>
+                <li id="humidity">Humidity: 89%</li>
+                <li id="pressure">Pressure = 1.027hPa</li>
+                <li id="wind">Wind: 5km/h</li>
+              </ul>
+              <p>
+                <small>
+                  Min
+                  <span id="tempMin"> 11 </span>º Max
+                  <span id="tempMax">18</span>º
+                </small>
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row weather-bottom">
+          <div class="col">
+            <div class="border border-light shadow p-3 mb-5 day">
+              <h1>Mon</h1>
+              <h2>⛅️</h2>
+              <p>
+                Min 9º <br />
+                Max 14º
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border border-light shadow p-3 mb-5 day">
+              <h1>Tue</h1>
+              <h2>☀️</h2>
+              <p>
+                Min 7º <br />
+                Max 14º
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border border-light shadow p-3 mb-5 day">
+              <h1>Wed</h1>
+              <h2>☀️</h2>
+              <p>
+                Min 7º <br />
+                Max 14º
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border border-light shadow p-3 mb-5 day">
+              <h1>Thu</h1>
+              <h2>☀️</h2>
+              <p>
+                Min 7º <br />
+                Max 14º
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="border border-light shadow p-3 mb-5 day">
+              <h1>Fri</h1>
+              <h2>☀️</h2>
+              <p>
+                Min 7º <br />
+                Max 14º
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>
