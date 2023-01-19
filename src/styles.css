@@ -21,7 +21,7 @@ footer {
   color: snow;
   position: relative;
   top: -97px;
-  left: 15px;
+  left: 170px;
 }
 footer a {
   text-decoration: underline;
@@ -33,14 +33,12 @@ footer a:hover {
   font-size: 11px;
   font-weight: bolder;
 }
-
-.container {
-  margin: 0 20px;
-}
 .box {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.7);
   margin: 100px auto;
+  max-width: 800px;
+  max-height: 550px;
   padding: 30px;
 }
 .weather-top,
@@ -48,17 +46,11 @@ footer a:hover {
   text-align: center;
   margin: 10px 0;
 }
-.today {
-  border-radius: 30%;
-  margin: 0 auto;
-  max-width: 300px;
-  padding: 20px 0;
-}
 .today h1 {
-  font-size: 60px;
+  font-size: 50px;
 }
 .today h2 {
-  font-size: 55px;
+  font-size: 60px;
 }
 .today h3 {
   font-size: 30px;
@@ -74,14 +66,8 @@ footer a:hover {
   color: black;
 }
 .data {
-  margin: 0 auto;
-  padding: 50px 0;
+  padding: 25px 0;
   border-left: 1.5px solid #dee2e6 !important;
-}
-.day {
-  border-radius: 40%;
-  padding: 30px;
-  margin: 20px 0 0 0;
 }
 .day h1 {
   font-size: 25px;
