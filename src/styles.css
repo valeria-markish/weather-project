@@ -44,6 +44,15 @@ footer a:hover {
   max-height: 550px;
   padding: 30px;
 }
+.current-button {
+  color: #026bdb;
+  border-color: #026bdb;
+}
+.current-button:hover {
+  color: #fff;
+  background-color: #026bdb;
+  border-color: #026bdb;
+}
 .weather-top,
 .weather-bottom {
   text-align: center;
@@ -65,8 +74,13 @@ footer a:hover {
   position: relative;
   top: -25px;
 }
-.temp a {
+.temp a:hover {
   color: #026bdb;
+  cursor: default;
+  text-decoration: none;
+}
+.off-link {
+  color: #5b6268;
 }
 .data {
   padding: 25px 0;
