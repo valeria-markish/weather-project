@@ -73,24 +73,22 @@ function showWeather(response) {
   weatherDescription.innerHTML = `${response.data.weather[0].main}`;
 
   let feelsLike = document.querySelector("#feels-like");
-  feelsLike.innerHTML = `Feels like: ${Math.round(
-    response.data.main.feels_like
-  )}º`;
+  feelsLike.innerHTML = `${Math.round(response.data.main.feels_like)}º`;
 
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  humidity.innerHTML = `${response.data.main.humidity}%`;
 
   let pressure = document.querySelector("#pressure");
-  pressure.innerHTML = `Pressure: ${response.data.main.pressure}hPa`;
+  pressure.innerHTML = `${response.data.main.pressure}hPa`;
 
   let wind = document.querySelector("#wind");
-  wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
+  wind.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
 
-  let tempMin = document.querySelector("#tempMin");
-  tempMin.innerHTML = `${Math.round(response.data.main.temp_min)}`;
+  let tempMin = document.querySelector("#temp-min");
+  tempMin.innerHTML = `${Math.round(response.data.main.temp_min)}º`;
 
-  let tempMax = document.querySelector("#tempMax");
-  tempMax.innerHTML = `${Math.round(response.data.main.temp_max)}`;
+  let tempMax = document.querySelector("#temp-max");
+  tempMax.innerHTML = `${Math.round(response.data.main.temp_max)}º`;
 }
 
 function showLocation(position) {
