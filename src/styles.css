@@ -1,7 +1,7 @@
 body {
   background: url("../images/cloudy-sky.jpg");
-  background-repeat: none;
-  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 120%;
   font-family: "Roboto Mono", monospace;
 }
 ul {
