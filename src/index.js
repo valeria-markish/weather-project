@@ -37,6 +37,35 @@ function showLocation(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function showForecast() {
+  let forecast = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+    <div class="col">
+      <div class="day">
+        <h1>Mon</h1>
+        <h2>
+          <img
+            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
+            alt="broken clouds"
+          />
+        </h2>
+        <p>
+          Max 14º <br />
+          Min 9º
+        </p>
+      </div>
+    </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 function showWeather(response) {
   let temperature = document.querySelector("#temperature");
   let currentCity = document.querySelector("#city");
@@ -95,6 +124,7 @@ function farenheitTemp(event) {
 }
 
 currentTime();
+showForecast();
 
 navigator.geolocation.getCurrentPosition(showLocation);
 
