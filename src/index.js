@@ -37,7 +37,7 @@ function showLocation(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
-function showForecast() {
+function showForecast(response) {
   let forecast = document.querySelector("#forecast");
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
   let forecastHTML = `<div class="row">`;
@@ -64,6 +64,13 @@ function showForecast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecast.innerHTML = forecastHTML;
+}
+
+function getCoordinatesForescast(coordinates) {
+  let apiKey = "10469a8133000fdbto80b02142f32bfd";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showForecast);
 }
 
 function showWeather(response) {
@@ -93,13 +100,14 @@ function showWeather(response) {
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${response.data.condition.icon}.png`
   );
   image.setAttribute("alt", response.data.condition.icon);
+
+  getCoordinatesForescast(response.data.coordinates);
 }
 
 function searchCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#inputCity");
   let cityName = cityInput.value;
-
   let apiKey = "10469a8133000fdbto80b02142f32bfd";
   let units = "metric";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityName}&key=${apiKey}&units=${units}`;
@@ -124,7 +132,6 @@ function farenheitTemp(event) {
 }
 
 currentTime();
-showForecast();
 
 navigator.geolocation.getCurrentPosition(showLocation);
 
