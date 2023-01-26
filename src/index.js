@@ -37,29 +37,45 @@ function showLocation(position) {
   axios.get(apiUrl).then(showWeather);
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function showForecast(response) {
+  let forecastData = response.data.daily;
   let forecast = document.querySelector("#forecast");
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` 
+  forecastData.forEach(function (dataForecast, index) {
+    if (index < 6 && index > 0) {
+      forecastHTML =
+        forecastHTML +
+        ` 
     <div class="col">
       <div class="day">
-        <h1>Mon</h1>
+        <h1>${formatDay(dataForecast.time)}</h1>
         <h2>
           <img
-            src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/broken-clouds-day.png"
-            alt="broken clouds"
+            src="${dataForecast.condition.icon_url}"
+            alt="${dataForecast.condition.description}"
+            width = "85px"
           />
         </h2>
         <p>
-          Max 14º <br />
-          Min 9º
+          <span class="tempMax">${Math.round(
+            dataForecast.temperature.maximum
+          )}º</span> 
+           <span class="tempMin">${Math.round(
+             dataForecast.temperature.minimum
+           )}º</span>
         </p>
       </div>
     </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
