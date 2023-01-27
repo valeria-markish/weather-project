@@ -22,6 +22,13 @@ function currentTime() {
   time.innerHTML = `${day} <br /> ${hour}:${minutes}`;
 }
 
+function showLisbon() {
+  let apiKey = "10469a8133000fdbto80b02142f32bfd";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=Lisbon&key=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(showWeather);
+}
+
 function currentWeather(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showLocation);
@@ -51,7 +58,7 @@ function showForecast(response) {
 
   let forecastHTML = `<div class="row">`;
   forecastData.forEach(function (dataForecast, index) {
-    if (index < 6 && index > 0) {
+    if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
         ` 
@@ -68,10 +75,9 @@ function showForecast(response) {
         <p>
           <span class="tempMax">${Math.round(
             dataForecast.temperature.maximum
-          )}º</span> 
-           <span class="tempMin">${Math.round(
-             dataForecast.temperature.minimum
-           )}º</span>
+          )}º</span> <span class="tempMin">${Math.round(
+          dataForecast.temperature.minimum
+        )}º</span>
         </p>
       </div>
     </div>`;
@@ -148,8 +154,7 @@ function farenheitTemp(event) {
 }
 
 currentTime();
-
-navigator.geolocation.getCurrentPosition(showLocation);
+showLisbon();
 
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", searchCity);
