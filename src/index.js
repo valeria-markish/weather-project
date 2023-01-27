@@ -109,11 +109,12 @@ function showWeather(response) {
   descriptionWeather = response.data.condition.description;
   description =
     descriptionWeather.charAt(0).toUpperCase() + descriptionWeather.slice(1);
+  feelsTemp = response.data.temperature.feels_like;
 
   temperature.innerHTML = Math.round(celsiusTemperature);
   currentCity.innerHTML = response.data.city;
   weatherDescription.innerHTML = `${description}`;
-  feelsLike.innerHTML = `${Math.round(response.data.temperature.feels_like)}º`;
+  feelsLike.innerHTML = `${Math.round(feelsTemp)}º`;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   pressure.innerHTML = `${response.data.temperature.pressure}hPa`;
   wind.innerHTML = `${Math.round(response.data.wind.speed)}km/h`;
@@ -140,7 +141,11 @@ function searchCity(event) {
 function celsiusTemp(event) {
   event.preventDefault();
   let tempC = document.querySelector("#temperature");
+  let feelsLikeTemp = document.querySelector("#feels-like");
+
   tempC.innerHTML = Math.round(celsiusTemperature);
+  feelsLikeTemp.innerHTML = `${Math.round(feelsTemp)}º`;
+
   celsiusLink.classList.remove("off-link");
   farenheitLink.classList.add("off-link");
 }
@@ -148,7 +153,11 @@ function celsiusTemp(event) {
 function farenheitTemp(event) {
   event.preventDefault();
   let tempF = document.querySelector("#temperature");
+  let feelsLikeTemp = document.querySelector("#feels-like");
+
   tempF.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+  feelsLikeTemp.innerHTML = `${Math.round((feelsTemp * 9) / 5 + 32)}º`;
+
   farenheitLink.classList.remove("off-link");
   celsiusLink.classList.add("off-link");
 }
@@ -163,6 +172,7 @@ let currentButton = document.querySelector("#current-button");
 currentButton.addEventListener("click", currentWeather);
 
 let celsiusTemperature = null;
+let feelsTemp = null;
 
 let celsiusLink = document.querySelector("#celsius");
 let farenheitLink = document.querySelector("#farenheit");
